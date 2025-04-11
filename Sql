@@ -1,0 +1,82 @@
+SET NAMES utf8;
+SET time_zone = '+00:00';
+SET foreign_key_checks = 0;
+SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
+
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE `admin` (
+  `admin_id` int(10) NOT NULL AUTO_INCREMENT,
+  `admin_name` varchar(50) NOT NULL,
+  `admin_email` varchar(50) NOT NULL,
+  `admin_password` varchar(50) NOT NULL,
+  `admin_status` int(10) NOT NULL,
+  `admin_image` text NOT NULL,
+  PRIMARY KEY (`admin_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS `comments`;
+CREATE TABLE `comments` (
+  `comment_id` int(10) NOT NULL AUTO_INCREMENT,
+  `comment_text` text NOT NULL,
+  `comment_by` int(10) NOT NULL,
+  `comment_to` int(10) NOT NULL,
+  `comment_task_id` int(10) NOT NULL,
+  `comment_time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `comment_display` int(5) NOT NULL DEFAULT '1',
+  `commenter_name` varchar(50) NOT NULL,
+  `commenter_image` text NOT NULL,
+  PRIMARY KEY (`comment_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS `project`;
+CREATE TABLE `project` (
+  `project_id` int(10) NOT NULL AUTO_INCREMENT,
+  `project_name` varchar(50) NOT NULL,
+  `project_description` text NOT NULL,
+  `project_status` int(10) NOT NULL,
+  PRIMARY KEY (`project_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS `task`;
+CREATE TABLE `task` (
+  `task_id` int(10) NOT NULL AUTO_INCREMENT,
+  `task_name` varchar(50) NOT NULL,
+  `task_issuedate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `dead_line` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `task_details` text NOT NULL,
+  `task_project` int(10) NOT NULL,
+  `task_receiver` int(10) NOT NULL,
+  `task_sender` int(10) NOT NULL,
+  `task_sender_name` varchar(50) NOT NULL,
+  `task_sender_image` text NOT NULL,
+  `task_display` int(10) NOT NULL DEFAULT '1',
+  `task_status` varchar(50) NOT NULL DEFAULT 'pending',
+  PRIMARY KEY (`task_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+  `user_id` int(10) NOT NULL AUTO_INCREMENT,
+  `user_fname` varchar(50) NOT NULL,
+  `user_lname` varchar(50) NOT NULL,
+  `user_email` varchar(50) NOT NULL,
+  `user_password` varchar(50) NOT NULL,
+  `user_status` int(10) NOT NULL,
+  `user_gender` varchar(10) NOT NULL,
+  `user_image` text NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `user` (`user_id`, `user_fname`, `user_lname`, `user_email`, `user_password`, `user_status`, `user_gender`, `user_image`) VALUES
+(1, 'Anas', 'Khan               ',  'anas@gmail.com', '123',  1,  'male', '../images/Profile_Images/jonney.jpeg1571984859'),
+(2, 'Shubham   ', 'Jha   ', 'shubham@gmail.com',  '1234', 1,  'male', '/new-traning/Shivam_Yadav/Shivam/PHP/DataBase/Uploads/liarnado.jpeg1566909481'),
+(3, 'Ram',  'Verma',  'ram@gmail.com',  '123',  1,  'male', '/new-traning/Shivam_Yadav/Shivam/PHP/DataBase/Uploads/daniel.jpeg1562053931'),
+(5, 'Riya', 'Wadhwa', 'riya@gmail.com', '123',  1,  'female', '/new-traning/Shivam_Yadav/Shivam/PHP/DataBase/Uploads/daniel.jpeg1562053931'),
+(10,  'Pooja  ',  'Laddha  ', 'pooja@gmail.com',  'pooja123', 1,  'female', '/new-traning/Shivam_Yadav/Shivam/PHP/DataBase/Uploads/deepika.jpeg1566304541'),
+(11,  'Priyanka', 'Sharma', 'priyanka@gmail.com', '123',  1,  'female', '../images/Profile_Images/eva.jpeg1567171554');
+
+-- 2019-10-25 08:15:05
