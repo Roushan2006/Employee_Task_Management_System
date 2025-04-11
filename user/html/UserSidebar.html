@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    #mySidenav a {
+      position: absolute;
+      left: -150px;
+      transition: 0.3s;
+      padding: 15px;
+      width: 180px;
+      text-decoration: none;
+      font-size: 20px;
+      color: white;
+      border-radius: 0 5px 5px 0;
+      display: inline-block;
+      overflow-wrap: hidden;
+    }
+
+    #mySidenav a:hover {
+      left: 0;
+    }
+
+    #update {
+      top: 300px;
+      background-color: #4CAF50;
+    }
+
+    #req {
+      top: 400px;
+      background-color: #f44336;
+    }
+
+    #all {
+      top: 500px;
+      background-color: #2196F3;
+    }
+
+    #frd {
+      top: 500px;
+      background-color: #555
+    }
+  </style>
+</head>
+<body>
+  <div id="mySidenav" class="sidenav">
+   
+    <a href="AllMates.php" id="update">All Users</a>
+    <a href="UserTaskSender.php" id="req">Sent Tasks</a>
+    <a href="UpdateUserProfile.php" id="all">Update Profile</a>
+
+  </div>
+  <div style="margin-left:80px;">
+  </div>  
+</body>
+</html> 
